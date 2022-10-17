@@ -106,6 +106,11 @@ function Layout({children})
                             )}
 
                         <div className="d-flex align-items-center px-4">
+                            <Badge
+                                count={user?.unseenNotifications.length}
+                                onClick={() => navigate("/notifications")}>
+                                <i className="ri-notification-line header-action-icon px-3"></i>
+                            </Badge>
 
                             <Link className="anchor mx-2" to="/profile">
                                 {user?.name}

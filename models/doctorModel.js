@@ -16,11 +16,6 @@ const doctorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    email: 
-    {
-        type: String,
-        required: true
-    },
     phoneNumber: 
     {
         type: String,
@@ -55,6 +50,11 @@ const doctorSchema = new mongoose.Schema({
     {
         type: Array,
         required: true,
+    },
+    status: 
+    {
+        type: String,
+        default: "Pending",
     },
     isDoctor: 
     {
