@@ -9,7 +9,10 @@ const dotenv=require('dotenv');
 const dbConfig = require("./config/dbConfig");
 
 const userRoute = require("./routes/userRoute");
+const adminRoute = require("./routes/adminRoute");
+
 app.use("/api/user", userRoute);
+app.use("/api/admin", adminRoute);
 
 
 //Usuage
