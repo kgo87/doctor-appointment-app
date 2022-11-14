@@ -36,6 +36,24 @@ function Layout({children})
         }
     ];
 
+    const doctorMenu = [
+        {
+          name: "Home",
+          path: "/",
+          icon: "ri-home-line",
+        },
+        {
+          name: "Appointments",
+          path: "/doctor/appointments",
+          icon: "ri-file-list-line",
+        },
+        {
+          name: "Profile",
+          path: `/doctor/profile/${user?._id}`,
+          icon: "ri-user-line",
+        },
+      ];
+
     const adminMenu = [
         {
           name: "Home",
@@ -59,7 +77,7 @@ function Layout({children})
         }
       ];
 
-      const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? userMenu : userMenu;
+      const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? doctorMenu : userMenu;
       const role = user?.isAdmin ? "Admin" : user?.isDoctor ? "Doctor" : "User";
 
     return (
