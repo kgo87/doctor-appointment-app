@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertsSlice";
 function Home() {
   const [doctors, setDoctors] = useState([]);
+  const { user } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const getData = async () => {
     try {
@@ -30,6 +31,7 @@ function Home() {
   }, []);
   return (
     <Layout>
+      <h1>Approved Doctors</h1>
       <Row gutter={20}>
         {doctors.map((doctor) => (
           <Col span={8} xs={24} sm={24} lg={8}>
