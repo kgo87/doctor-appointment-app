@@ -62,11 +62,6 @@ function Layout({ children }) {
       path: "/admin/doctorslist",
       icon: "ri-user-star-line",
     },
-    {
-      name: "Profile",
-      path: "/profile",
-      icon: "ri-user-line",
-    },
   ];
 
   const menuToBeRendered = user?.isAdmin ? adminMenu : user?.isDoctor ? doctorMenu : userMenu;
@@ -129,7 +124,7 @@ function Layout({ children }) {
                 <i className="ri-notification-line header-action-icon px-3"></i>
               </Badge>
 
-              <Link className="anchor mx-2" to="/profile">
+              <Link className="anchor mx-2" to="/notifications">
                 {user?.name}
               </Link>
             </div>

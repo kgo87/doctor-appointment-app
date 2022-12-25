@@ -28,7 +28,7 @@ function Register() {
 
     return (
         <div className = 'authentication'>
-            <div className = 'register-form card p-3'> </div>
+            <div className = 'register-form card p-3'> 
             <h1 className = 'card-title'> Register Form </h1>
             <Form layout = 'vertical' onFinish = {onFinish}>
                 <Form.Item label = 'Name' name = 'name'>
@@ -46,6 +46,7 @@ function Register() {
                 <Button className = 'primary-button my-2 full-width-button' htmlType = 'submit'>REGISTER</Button>
                 <Link to= '/login' className = 'anchor mt-2'>Click here to log in </Link>
             </Form>
+            </div>
         </div>
     )
 }

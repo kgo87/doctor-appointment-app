@@ -29,7 +29,7 @@ function Login() {
 
     return (
         <div className = 'authentication'>
-            <div className = 'register-form card p-3'> </div>
+            <div className = 'register-form card p-3'> 
             <h1 className = 'card-title'> Log-in Form </h1>
             <Form layout = 'vertical' onFinish = {onFinish}>
 
@@ -44,6 +44,7 @@ function Login() {
                 <Button className = 'primary-button my-2 full-width-button' htmlType = 'submit'>LOG IN</Button>
                 <Link to= '/register' className = 'anchor mt-2'>Click here to register </Link>
             </Form>
+            </div>
         </div>
     )
 }

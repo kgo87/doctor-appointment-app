@@ -13,6 +13,14 @@ function Doctor({ doctor }) {
       </h1>
       <hr />
       <p>
+        <b>Specialization : </b>
+        {doctor.specialization}
+      </p>
+      <p>
+        <b>Years of Experience : </b>
+        {doctor.experience}
+      </p>      
+      <p>
         <b>Phone Number : </b>
         {doctor.phoneNumber}
       </p>
@@ -25,7 +33,7 @@ function Doctor({ doctor }) {
         {doctor.feePerConsultation}
       </p>
       <p>
-        <b>Timings : </b>
+        <b>Working hours : </b>
         {doctor.timings[0]} - {doctor.timings[1]}
       </p>
     </div>
