@@ -19,6 +19,14 @@ app.use("/api/doctor", doctorRoute);
 
 //Usuage
 process.env.NAME
-console.log(process.env.MONGOURL);
 
+if (process.env.NODE_ENV === "production") {
+    app.use("/", express.static("client/build"));
+  
+    app.get("*", (req, res) => {
+      res.sendFile(path.resolve(__dirname, "client/build/index.html"));
+    });
+  }
+
+app.get("/", (req, res) => res.send("Hello World!"));
 app.listen(port, () => console.log(`Node server listening on port ${port}`));
