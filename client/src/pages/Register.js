@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import axios from 'axios';
 import toast from "react-hot-toast";
 import { hideLoading, showLoading } from "../redux/alertsSlice";
+import { userApiLink } from '../utils/Constants';
 
 function Register() {
     const dispatch = useDispatch();
@@ -12,7 +13,7 @@ function Register() {
     const onFinish = async (values) => {
         try {
           dispatch(showLoading());
-          const response = await axios.post("/api/user/register", values);
+          const response = await axios.post(`${userApiLink}/register`, values);
           dispatch(hideLoading());
           if (response.data.success) {
             toast.success(response.data.message);

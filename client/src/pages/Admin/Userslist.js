@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-//import React from "react";
 import Layout from "../../components/Layout";
 import { showLoading, hideLoading } from "../../redux/alertsSlice";
 import axios from "axios";
 import { Table } from "antd";
 import moment from "moment";
+import { adminApiLink } from "../../utils/Constants";
 
 function Userslist() {
     const [users, setUsers] = useState([]);
@@ -13,7 +13,7 @@ function Userslist() {
     const getUsersData = async () => {
       try {
         dispatch(showLoading());
-        const resposne = await axios.get("/api/admin/get-all-users", {
+        const resposne = await axios.get(`${adminApiLink}/get-all-users`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("token")}`,
           },
@@ -57,7 +57,7 @@ function Userslist() {
     ];
   return (
     <Layout>
-      <h1 className="page-header">Users List</h1>
+      <h1 className="page-title">Users List</h1>
       <hr />
       <Table columns={columns} dataSource={users}/>
     </Layout>

@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/Layout';
-//import Form from 'antd/lib/form/Form';
 import { Row, Col, Form, Input, TimePicker, Button} from 'antd';
 import { useDispatch, useSelector } from "react-redux";
 import { showLoading, hideLoading } from "../redux/alertsSlice";
@@ -8,6 +7,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
+import { userApiLink } from '../utils/Constants';
 
 function ApplyDoctor() {
     const dispatch = useDispatch();
@@ -19,7 +19,7 @@ function ApplyDoctor() {
         {
             dispatch(showLoading());
             const response = await axios.post(
-              "/api/user/apply-doctor-account",
+                `${userApiLink}/apply-doctor-account`,
               {
                 ...values,
                 userId: user._id,

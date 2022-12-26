@@ -6,6 +6,7 @@ import {toast} from 'react-hot-toast'
 import axios from "axios";
 import { Table } from "antd";
 import moment from "moment";
+import { adminApiLink } from "../../utils/Constants";
 
 function DoctorsList() {
   const [doctors, setDoctors] = useState([]);
@@ -13,7 +14,7 @@ function DoctorsList() {
   const getDoctorsData = async () => {
     try {
       dispatch(showLoading());
-      const resposne = await axios.get("/api/admin/get-all-doctors", {
+      const resposne = await axios.get(`${adminApiLink}/get-all-doctors`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -31,7 +32,7 @@ function DoctorsList() {
     try {
       dispatch(showLoading());
       const resposne = await axios.post(
-        "/api/admin/change-doctor-account-status",
+        `${adminApiLink}/change-doctor-account-status`,
         { doctorId: record._id, userId: record.userId, status: status },
         {
           headers: {
@@ -102,7 +103,7 @@ function DoctorsList() {
   ];
   return (
     <Layout>
-      <h1 className="page-header">Doctors List</h1>
+      <h1 className="page-title">Doctors List</h1>
       <hr />
       <Table columns={columns} dataSource={doctors} />
     </Layout>

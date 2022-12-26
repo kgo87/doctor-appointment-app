@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { Table } from "antd";
 import moment from "moment";
+import { userApiLink } from "../utils/Constants";
 
 function Appointments() {
   const [appointments, setAppointments] = useState([]);
@@ -13,7 +14,7 @@ function Appointments() {
   const getAppointmentsData = async () => {
     try {
       dispatch(showLoading());
-      const resposne = await axios.get("/api/user/get-appointments-by-user-id", {
+      const resposne = await axios.get(`${userApiLink}/get-appointments-by-user-id`, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

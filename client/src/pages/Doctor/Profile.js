@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import DoctorForm from "../../components/DoctorForm";
 import moment from "moment";
+import { doctorApiLink } from "../../utils/Constants";
 
 function Profile() {
   const { user } = useSelector((state) => state.user);
@@ -18,7 +19,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/doctor/update-doctor-profile",
+        `${doctorApiLink}/update-doctor-profile`,
         {
           ...values,
           userId: user._id,
@@ -50,7 +51,7 @@ function Profile() {
     try {
       dispatch(showLoading());
       const response = await axios.post(
-        "/api/doctor/get-doctor-info-by-user-id",
+        `${doctorApiLink}/get-doctor-info-by-user-id`,
         {
           userId: params.userId,
         },
